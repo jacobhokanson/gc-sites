@@ -1,0 +1,67 @@
+{% extends './base.html' %}
+
+{% block title %}
+<title>Turtle Words</title>
+{% endblock %}
+
+{% block content %}
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <h1 class="display-4 font-weight-normal">Turtle Words</h1>
+      <p class="lead font-weight-normal">It's turtle-y worth it.</p>
+      <a class="btn btn-outline-secondary" href="#">Coming soon</a>
+    </div>
+    {% if turtle_1 %}
+      <div class="product-device d-none d-md-block">
+
+        {% autoescape off %}
+        {{ turtle_1 }}
+        {% endautoescape %}
+      </div>
+    {% else %}
+      <p>no image</p>
+    {% endif %}
+
+    {% if turtle_2 %}
+      <div class="product-device product-device-2 d-none d-md-block">
+
+        {% autoescape off %}
+        {{ turtle_2 }}
+        {% endautoescape %}
+
+      </div>
+    {% else %}
+      <p>no image</p>
+    {% endif %}
+  </div>
+  
+
+  <div class="container marketing">
+    {% for entry in turtle_words %}
+    <hr class="featurette-divider" />
+    <div class="row featurette">
+      <div class="{% cycle 'col-md-7' 'col-md-7 order-md-2' %}">
+        <h2 class="featurette-heading">{{ entry.word|title }}</h2><!-- a word from the API -->
+        {% for def in entry.defs %}
+        <p class="lead">{{ def }}</p>
+        {% endfor %}
+      </div> <!-- HI -->
+      <div class="{% cycle 'col-md-5' 'col-md-5 order-md-1' %}">
+        <div class="featurette-image img-fluid mx-auto">
+          <!-- the first turtle SVG -->
+          {% if True %}
+            <div class="product-device d-none d-md-block">
+              {% autoescape off %}
+              {% cycle turtle_2 turtle_1 as turt %}
+              {% endautoescape %}
+            </div>
+          {% else %}
+            <p>no image</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <hr class="featurette-divider" />
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+
+{% block jumbo %}
+  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">All about {{ dolphin.name }}</h1>
+      <p class="lead my-3">Current number of votes: {{ dolphin.votes }}</p>
+      {% if voter %}
+        <p class="text-muted">Thank you for your vote, {{ voter }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block main %}
+        <h3 class="pb-3 mb-4 font-italic border-bottom">
+          More about...
+        </h3>
+
+        <div class="blog-post">
+          <h2 class="blog-post-title">{{ dolphin.name }}</h2>
+
+          <p>{{ dolphin.info }}</p>
+
+        </div><!-- /.blog-post -->
+
+      </div><!-- /.blog-main -->
+{% endblock %}
