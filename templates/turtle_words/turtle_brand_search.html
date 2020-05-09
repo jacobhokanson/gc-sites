@@ -1,0 +1,15 @@
+{% extends 'turtle_words\base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <form action="/challenge_7/turtle_brand_search" class="form-group" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

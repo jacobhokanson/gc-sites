@@ -1,0 +1,25 @@
+{% extends './base.html' %}
+
+{% block title %}
+<title>Turtle Brand</title>
+{% endblock %}
+
+{% block content %}
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+    <div class="col-md-5 p-lg-5 mx-auto my-5">
+      <h1 class="display-4 font-weight-normal" style="color:{{ brand_color }};">{{ brand_idea.word }}<span style="color:#000000;">TURTLE</span></h1>
+      <p class="lead font-weight-normal">{{ brand_color }}</p>
+      <a class="btn btn-outline-secondary" href="#">I like it</a>
+    </div>
+      {% if turtle_1 %}
+      <div class="product-device d-none d-md-block">
+
+        {% autoescape off %}
+        {{ turtle_1 }}
+        {% endautoescape %}
+      </div>
+      {% else %}
+      <p>no turtle</p>
+      {% endif %}
+  </div>
+{% endblock %}
